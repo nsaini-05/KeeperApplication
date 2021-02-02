@@ -20,12 +20,14 @@ function CreateArea(props) {
     
     
     function handleClick(event){
-        //console.log(item);
+        
        
 
         props.onCreated(item);
-        
         event.preventDefault();
+        setItem({title : "" , content : ""});
+    
+
          
     }
 

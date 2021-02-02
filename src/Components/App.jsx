@@ -10,7 +10,7 @@ import CreateArea from "./CreateArea.jsx";
 
 function App()
 {
-    const [notes , setNotes] = useState([{"title" : "abc", "content" : "dsf"}]);
+    const [notes , setNotes] = useState([]);
 
     function insertItem(item)
     {
