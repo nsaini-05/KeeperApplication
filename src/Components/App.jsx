@@ -10,29 +10,38 @@ import CreateArea from "./CreateArea.jsx";
 
 function App()
 {
-    const [notes , addNote] = useState([{"title" : "abc", "content" : "dsf"}]);
+    const [notes , setNotes] = useState([{"title" : "abc", "content" : "dsf"}]);
 
     function insertItem(item)
     {
     
         
-         addNote(prevValue => {
+        setNotes(prevValue => {
             return [...prevValue , item];            
         }) 
 
 
-        console.log(notes);
-
-
         
+    }
+
+    
+
+
+    function deleteItem(itemIndex)
+    {
+        setNotes(prevValue=>{
+           return prevValue.filter((element , index)=>{
+               return index!== itemIndex;
+           })
+        })
     }
 
 
 
     return <div><Header />
     <CreateArea onCreated = {insertItem}/> 
-    {notes.map(item =>{
-        return   <Note title = {item.title} content = {item.content} />
+    {notes.map((item ,index) =>{
+        return   <Note title = {item.title} content = {item.content} key = {index} id = {index} delete = {deleteItem} />
     })}
     <Footer /></div>
 }
